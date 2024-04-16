@@ -1,0 +1,410 @@
+* {
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: black;
+    
+}
+
+.game-container {
+    min-width: 100vw;
+    width: 100vw;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+}
+
+.column {
+    flex: 1;
+    padding: 20px;
+    box-sizing: border-box;
+    justify-content: start;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(5, max-content);
+    align-items: center;
+    justify-content: center;
+}
+
+.grid-item {
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    text-align: center;
+    display: block;
+    width: 100%;
+    margin: 0;
+    margin-bottom: 20px;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-container h1{
+    font-size: 3.75rem;
+}
+
+.red{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    max-width: 280px;
+    max-height: 380px;
+    border: 3px rgba(255, 0, 0, 0.5);
+    padding: 10px;
+    margin: 20px;
+    background-color: rgb(86, 25, 9);
+    color: rgb(195 78 43);
+    border-radius: 5px;
+    box-shadow: 7px 7px 7px rgb(43, 43, 43);
+}
+
+.red-image {
+    transform: rotateX(0deg);
+    width: 175.32px;
+    height: 105.4px;
+    border-radius: 0.6rem;
+    transition: all 400ms ease 0s;
+    touch-action: manipulation;
+    perspective: 600px;
+    perspective-origin: 50% 50%;
+    background-size: cover;
+    background-position: center;
+    background-image: url("https://cdn.codenames.game/v20210210/theme/classic/card/backs.png");
+    background-position-x: 100%;
+    background-position-y: 100%;
+}
+
+.blue-image {
+    transform: rotateX(0deg);
+    width: 175.32px;
+    height: 105.4px;
+    border-radius: 0.6rem;
+    transition: all 400ms ease 0s;
+    touch-action: manipulation;
+    perspective: 600px;
+    perspective-origin: 50% 50%;
+    background-size: cover;
+    background-position: center;
+    background-image: url("https://cdn.codenames.game/v20210210/theme/classic/card/backs.png");
+    background-position-y: 0%;
+}
+
+.blue{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    max-width: 280px;
+    max-height: 380px;
+    border: 3px rgba(0, 0, 0, 0.3);
+    padding: 10px;
+    margin: 20px;
+    background-color: rgb(16 60 75);
+    color: rgb(118 155 169);
+    border-radius: 5px;
+    box-shadow: 7px 7px 7px rgb(16 60 75);
+}
+
+.blue .header-container {
+    flex-direction: row-reverse;
+}
+
+.blue .header-container h1 {
+    margin-right: 0;
+}
+
+.redbutton{
+    border-radius: 15px;
+    background-color: rgba(255, 0, 0, 0.5);
+    color: white;
+    padding: 5px;
+    text-align: center;
+    transition-duration: 0.4s;
+    border-color: rgb(138, 5, 5);
+    margin-top: 5px;
+}
+
+.redbutton:hover{
+    background-color: rgba(255, 0, 0, 0.5);
+    color: white
+}
+
+.blueButton{
+    border-radius: 15px;
+    background-color: rgba(0, 0, 255, 0.5);
+    color: white;
+    padding: 5px;
+    text-align: center;
+    transition-duration: 0.4s;
+    border-color: rgb(6, 6, 156);
+    margin-top: 5px;
+}
+
+.blueButton:hover{
+    background-color: rgba(0, 0, 255, 0.5);
+    color: white;
+}
+
+.red-users, .blue-users {
+    display: flex;
+    gap: 5px;
+    color: white;
+    flex-wrap: wrap;
+}
+
+.red-users p, .blue-users p {
+    font-size: 0.9rem;
+    padding: 2px 5px;
+    border-radius: 10px;
+    border: 1px solid white;
+}
+
+
+.playersbutton{
+    border-radius: 15px;
+    color: rgb(226, 150, 43) !important;
+    padding: 10px;
+    text-align: center;
+    transition-duration: 0.4s;
+}
+
+.playersbutton:hover{
+    color: white !important;
+    background-color: rgb(226, 150, 43);
+}
+
+.gamelog{
+    align-self: right;
+    border: 3px solid rgba(34,34,34, 0.9);
+    padding: 10px;
+    margin: 20px;
+    text-align: left;
+    border-radius: 12px;
+    color: white;
+    background-color: rgba(34,34,34, 0.9);
+    box-shadow: 7px 7px 7px rgb(43, 43, 43);
+    max-width: 280px;
+    max-height: 300px;
+    overflow-y: scroll;
+}
+
+.gltitle{
+    text-align: center;
+}
+
+.gamepage{
+    display:flex;
+    justify-content: space-between;
+}
+
+.join-form-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 100vh;
+    border-radius: 1rem;
+}
+
+.join-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background-color: rgba(34,34,34, 0.9);
+    color: white;
+    padding: 20px 50px;
+    border-radius: 1rem;
+}
+
+.join-form h1 {
+    margin-bottom: 0;
+}
+
+.join-form button {
+    display: inline-block;
+    position: relative;
+    padding: 0.4rem 1rem 0.3rem;
+    border-radius: 1rem;
+    color: rgba(255, 255, 255, 0.72);
+    background-color: rgb(119, 109, 70);
+    border: 2px 1px;
+    border-style: solid;
+    border-color: rgb(156, 149, 122) rgb(119, 109, 70) rgb(85, 77, 49);
+    border-image: none;
+    cursor: pointer;
+    user-select: none;
+    outline: none;
+    transition: all 200ms ease 0s;
+    min-width: 0px;
+    touch-action: manipulation;
+}
+
+.join-form input {
+    padding: 15px 20px;
+    border: 2px;
+    border-style: solid;
+    border-color: rgb(156, 149, 122) rgb(119, 109, 70) rgb(85, 77, 49);
+    border-radius: 1rem;
+    background-color: rgba(63, 63, 63);
+    color: white;
+    text-align: center;
+}
+
+.card {
+    display: flex;
+    transform: rotateX(0deg);
+    width: 170px;
+    height: 110px;
+    border-radius: 0.6rem;
+    transition: all 400ms ease 0s;
+    touch-action: manipulation;
+    perspective: 600px;
+    perspective-origin: 50% 50%;
+    background-size: cover;
+    background-position: center;
+    background-position-x: 100%;
+    background-position-y: 50%;
+    align-items: end;
+    justify-content: center;
+    padding-bottom: 0 !important;
+}
+
+.card .grid-item {
+    display: flex;
+    justify-content: center;
+    text-transform: uppercase;
+}
+
+.card-btn {
+    padding: 0.1rem 0.5rem !important;
+    margin-bottom: 18px !important;
+    font-weight: 600;
+    width: 100%;
+}
+
+.card-text {
+    color: white;
+    margin-bottom: 18px !important;
+    font-weight: 600;
+    letter-spacing: 2px;
+}
+
+.card-btn:hover {
+    transform: scale(1.1);
+}
+
+.card-btn:disabled {
+    pointer-events: none;
+    cursor: not-allowed;
+    background-color: grey;
+    color: rgb(43, 43, 43);
+}
+
+
+.game-start-settings {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10rem 10rem;
+}
+
+.game-start-settings button {
+    margin-top: 20px;
+}
+
+.game-start-settings button:hover {
+    transform: scale(1.1);
+}
+
+.neutral-card {
+    background-image: url('/static/images/row-3-column-1.png');
+}
+
+.black-card {
+    background-image: url('/static/images/row-1-column-1.png');
+}
+
+.blue-card {
+    background-image: url('/static/images/row-2-column-1.png');
+}
+
+.red-card{
+    background-image: url('/static/images/row-5-column-1.png');
+}
+
+input[type="text"] {
+    width: inherit;
+    background-color: rgb(43, 43, 43);
+    color: white;
+    text-align: center;
+    padding: 5px;
+    border-radius: 12px;
+}
+
+input[type="number"] {
+    width: 3.5rem;
+    background-color: rgb(43, 43, 43);
+    color: white;
+    text-align: center;
+    padding: 5px;
+    border-radius: 12px;
+    -moz-appearance: textfield;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+#cards-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.clicked {
+    opacity: 0.4;
+}
+
+.gameLog-item {
+    background-color: rgba(255, 0, 0, 0.5);
+}
+
+.clue em {
+    background-color: white !important;
+    color: black !important;
+    text-transform: uppercase;
+    font-style: normal
+}
+
+.end-game {
+    background-color: white;
+    border-radius: 12px;
+    padding: 10px 20px;
+    color: black;
+    position: absolute; 
+    top: 300px;
+    left: 0; 
+    right: 0; 
+    margin-left: auto; 
+    margin-right: auto; 
+    width: 120px; 
+}

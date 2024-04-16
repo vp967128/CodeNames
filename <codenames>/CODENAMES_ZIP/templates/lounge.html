@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block styles %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/home.css') }}" />
+{% endblock %}
+
+{% block content %}
+    <div class="lounge">
+
+        <div class="create-room-container">
+            <input id="username" type="text" value="" placeholder="Enter username here"/>
+            <button id="create-room" type="button">Create a room</button>
+        </div>
+
+        <h1> Game Rules</h1>
+        <h3> 1. Once you enter a room, you must invite players via invitation link & divide into two separate teams (RED VS BLUE)</h3>
+        <h3> 2. Each team must have one <i>spymaster</i> and the rest of the team will play as <i>operatives</i>. The <i>spymaster</i> from each team will provide clues for their <i>operatives</i>. The <i>operatives</i> will guess which cards correspond to their team based on these clues. The team to guess all their cards first wins! Wrong guesses may reveal the enemy team cards, if you reveal the <i>assassin</i> card (BLACK) your team loses :\ </h3>
+        <h3> 3. When providing clues the <i>spymaster</i> can only state one word & one number (# of cards that correspond to the clue word / # of guesses). The <i>operatives</i> can choose to end their turn early or use up all their guesses. Each team will take turns until a winner is revealed! </h3>
+        <h2> Let the games begins !!! </h2>
+
+        
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/uuid@8.3.2/dist/umd/uuidv4.min.js"></script>
+
+    <script type="text/javascript" charset="utf-8">
+        var user_id = uuidv4()
+        var socket = io.connect('', {
+            query: { user_id: user_id }
+        });
+
+        socket.on('redirect', function(room_name) {
+            window.location.href = room_name
+        })
+
+        var create_room_btn = document.getElementById('create-room');
+        create_room_btn.onclick = function() {
+            var username = document.getElementById('username').value;
+            console.log(username)
+            socket.emit('create_room', {'nickname': username});
+        };
+    </script>
+
+{% endblock %}

@@ -1,0 +1,144 @@
+{% extends "base.html" %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/game.css') }}" />
+{% endblock %}
+
+{% block content %}
+<div class="game-container">
+    <div class="join-link">
+        <button class="playersbutton" disabled>Give link: /room/{{ room_name }} to join</button>
+    </div>
+
+    <div class="join-form-container" {% if create %} style="display:none" {% endif %}>
+        <div class="join-form">
+            <h1>Welcome to Codenames</h1>
+
+            <label for="nickname">To enter the room, choose a nickname</label>
+            <input type="text" id="nickname" placeholder="Enter your nickname"/>
+            <button type="button" onclick="join_room()">Join the Room</button>
+        </div>
+    </div>
+
+    <div class="container" {% if not create %} style="display:none" {% endif %}>
+      
+        <div class="red">
+            <div class="header-container">
+                <div class="red-image"></div>
+                <h1 id="red-points">-</h1>
+            </div>
+            <div>   
+                <div>
+                    Operative(s) 
+                </div>
+                <div class="red-users red-operatives">
+                    -
+                </div>
+                
+                <button type="button" class="redbutton join-btn red-operatives-btn" onclick="join_red_operatives()">Join as Operatives</button> 
+            </div>
+            <div>   
+                <div>
+                    Spymaster(s) 
+                </div>
+                <div class="red-users red-spymaster">
+                    -
+                </div>
+                
+                <button type="button" class="redbutton join-btn red-spymaster-btn" onclick="join_red_spymaster()">Join as Spymaster</button> 
+            </div>
+        </div>
+    
+        <div class="game-start-settings">
+            {% if create %}
+
+            <div class="join-form">
+                <p>Codenames is a game for 4+ players</p>
+                <p>Divide evenly into two teams - <em style="color: red">red</em> and <em style="color:blue">blue</em>. Choose one player per team to join as a Spymaster.
+                Other players join as <strong>Operatives</strong>. Spymasters give one-word clues to their operatives, trying to associate as many of the team's word as possible.</p>
+                <p><em style="color: red">The team who first guesses all their words wins.</em></p>
+            </div>
+            <button type="button" onclick="start_game()">Start the game</button>
+            {% else %}
+            <div class="join-form">
+                <p>Waiting for the game to start...</p>
+            </div>
+            {% endif %}
+        </div>
+       
+        <div id="cards-container" class="column grid" style="display:none">
+            <div class="grid-container">
+                <!-- Cards goes here-->
+
+                <!-- Sample TEXT -->
+                <!-- <div class="grid-item card neutral-card">
+                    <p class="card-text">TEXT</p>
+                </div>
+                -->
+
+                <!-- Sample BUTTON -->
+                <!-- <div class="grid-item card neutral-card">
+                    <button class="card-btn">TEXT</button>
+                </div> -->
+            </div>
+
+            <form id="guessForm" style="display:none">
+                <input type="text" id="word" name="word" placeholder="Enter clue here" required>
+                <input type="number" id="number" name="number" value="1" placeholder="-" required>
+                <button type="button" onclick="giveClue()">Give Clue</button>
+            </form>
+
+            <form id="clueForm" style="display:none">
+                <input type="text" id="word-clue" name="word" disabled>
+                <input type="number" id="number-clue" name="number" disabled value="1" >
+            </form>
+        </div>
+    
+        <div>
+        <div class="blue">
+            <div class="header-container">
+                <div class="blue-image"></div>
+                <h1 id="blue-points">-</h1>
+            </div>
+            <div>   
+                <div>
+                    Operative(s) 
+                </div>
+                <div class="blue-users blue_operatives">
+                    -
+                </div>
+                
+                <button type="button" class="blueButton  join-btn blue-operatives-btn" onclick="join_blue_operatives()">Join as Operatives</button> 
+            </div>
+            <div>   
+                <div>
+                    Spymaster(s) 
+                </div>
+                <div class="blue-users blue_spymaster">
+                    -
+                </div>
+                
+                <button type="button" class="blueButton join-btn blue-spymaster-btn" onclick="join_blue_spymaster()">Join as Spymaster</button> 
+            </div>
+        </div>
+    
+        <div id="gamelog" class="gamelog">
+          <div class="gltitle">
+              <p>Game Log </p>
+          </div>
+          <!-- <p> {{actions}} </p> -->
+          <!-- <div>
+            <p>add console output </p>
+          </div> -->
+        </div>
+
+        
+    </div>
+    <div class="end-game" style="display:none">
+        
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/uuid@8.3.2/dist/umd/uuidv4.min.js"></script>
+    <script src="{{ url_for('static', filename='scripts/game.js') }}"></script>
+
+</div>
+{% endblock %}

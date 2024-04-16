@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="gameMatrix.css">
+</head>
+<body>
+
+<div class="container">
+  
+    <div class="red">
+      <p>CARDS LEFT: {{cards}} </p>
+      <p>Operative(s) <br> {{user}} <br> <button type="button" class="redbutton">Join as Operative</button> </p>
+      <p>Spymaster(s) <br> {{user}} <br> <button type="button" class="redbutton">Join as Spymaster</button> </p>
+      <p>Output Word: <span id="outputWordRed"></span></p>
+      <p>Output Number: <span id="outputNumberRed"></span></p>
+    </div>
+
+   
+    <div class="column grid">
+        <div class="grid-container">
+            <button class="grid-item" onclick="handleButtonClick('apple')">apple</button>
+            <button class="grid-item" onclick="handleButtonClick('apple')">apple</button>
+            <button class="grid-item" onclick="handleButtonClick('apple')">apple</button>
+            <button class="grid-item" onclick="handleButtonClick('apple')">apple</button>
+            <button class="grid-item" onclick="handleButtonClick('apple')">apple</button>
+            <button class="grid-item" onclick="handleButtonClick('apple')">apple</button>
+            <button class="grid-item" onclick="handleButtonClick('apple')">apple</button>
+            <button class="grid-item" onclick="handleButtonClick('apple')">apple</button>
+            <button class="grid-item" onclick="handleButtonClick('apple')">apple</button>
+            <button class="grid-item" onclick="handleButtonClick('apple')">apple</button>
+            <button class="grid-item" onclick="handleButtonClick('apple')">apple</button>
+            <button class="grid-item" onclick="handleButtonClick('apple')">apple</button>
+            <button class="grid-item" onclick="handleButtonClick('apple')">apple</button>
+            <button class="grid-item" onclick="handleButtonClick('apple')">apple</button>
+            <button class="grid-item" onclick="handleButtonClick('apple')">apple</button>
+            <button class="grid-item" onclick="handleButtonClick('apple')">apple</button>
+            <button class="grid-item" onclick="handleButtonClick('apple')">apple</button>
+            <button class="grid-item" onclick="handleButtonClick('apple')">apple</button>
+            <button class="grid-item" onclick="handleButtonClick('apple')">apple</button>
+            <button class="grid-item" onclick="handleButtonClick('apple')">apple</button>
+            <button class="grid-item" onclick="handleButtonClick('apple')">apple</button>
+            <button class="grid-item" onclick="handleButtonClick('apple')">apple</button>
+            <button class="grid-item" onclick="handleButtonClick('apple')">apple</button>
+            <button class="grid-item" onclick="handleButtonClick('apple')">apple</button>
+            <button class="grid-item" onclick="handleButtonClick('apple')">apple</button>
+        </div>
+        <form id="guessForm">
+            <label for="word">Word: </label>
+            <input type="text" id="word" name="word" required>
+            <br>
+            <label for="number">Number:</label>
+            <input type="number" id="number" name="number" required>
+            <br>
+            <button type="button" onclick="giveClue()">Give Clue</button>
+            <br> 
+            <button type="button" class="playersbutton">Players (add link) </button>
+        </form>
+    </div>
+
+    <div class="blue">
+      <p>CARDS LEFT: {{cards}} </p>
+      <p>Operative(s) <br> {{user}} <br> <button type="button" class="bluebutton">Join as Operative</button> </p>
+      <p>Spymaster(s) <br> {{user}} <br> <button type="button" class="bluebutton">Join as Spymaster</button> </p>
+      <p>Output Word: <span id="outputWordBlue"></span></p>
+      <p>Output Number: <span id="outputNumberBlue"></span></p>
+    </div>
+
+    <div class="gamelog">
+      <div class="gltitle">
+          <p>Game Log </p>
+      </div>
+      <p> {{actions}} </p>
+      <p>add console output </p>
+    </div>
+</div>
+
+<script src="gameMatrix.js"></script>
+
+</body>
+</html>
